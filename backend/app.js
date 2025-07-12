@@ -12,20 +12,18 @@ const ErrorHandler = require("./middleware/error");
 const app = express();
 
 // Middleware
-app.use("/uploads", express.static("uploads"));
+//app.use("/uploads", express.static("uploads"));
 //app.use(express.json());
 app.use(cookieParser());
 //app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json({ limit: "20mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "20mb" }));
 
-
 // Enable CORS for frontend
 app.use(
   cors({
-   // origin: "http://localhost:3000",
-    origin: "https://eshop-eyuz.vercel.app/", 
-   
+    // origin: "http://localhost:3000",
+    origin: "https://eshop-eyuz.vercel.app/",
     credentials: true,
   })
 );
