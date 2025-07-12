@@ -23,7 +23,9 @@ app.use(bodyParser.urlencoded({ extended: true, limit: "20mb" }));
 // Enable CORS for frontend
 app.use(
   cors({
-    origin: "http://localhost:3000",
+   // origin: "http://localhost:3000",
+    origin: "https://eshop-eyuz.vercel.app/", 
+   
     credentials: true,
   })
 );
