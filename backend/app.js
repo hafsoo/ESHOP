@@ -29,7 +29,7 @@ app.use(
 );
 
 // Health check
-app.get("/", (req, res) => {
+app.get("/test", (req, res) => {
   res.send("✅ Backend server is running");
 });
 
