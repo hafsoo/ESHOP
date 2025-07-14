@@ -23,6 +23,9 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
+app.get("/ping", (req, res) => {
+  res.send("pong");
+});
 
 // ✅ Set PORT
 const PORT = process.env.PORT || 8000;
