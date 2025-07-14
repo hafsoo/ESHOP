@@ -27,6 +27,7 @@ app.use(
     origin: [
       'https://eshop-eyuz.vercel.app',
       'https://eshop-eyuz-nw825u95q-hafsa-riazs-projects.vercel.app',
+      "https://eshop-eyuz-5tahov70b-hafsa-riazs-projects.vercel.app",
     ],
     credentials: true,
   })
