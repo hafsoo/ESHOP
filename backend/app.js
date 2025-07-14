@@ -24,7 +24,10 @@ app.use(
   cors({
     // origin: "http://localhost:3000",
    // origin: "https://eshop-eyuz.vercel.app",
-   origin: ['https://eshop-eyuz.vercel.app',],
+    origin: [
+      'https://eshop-eyuz.vercel.app',
+      'https://eshop-eyuz-nw825u95q-hafsa-riazs-projects.vercel.app',
+    ],
     credentials: true,
   })
 );
