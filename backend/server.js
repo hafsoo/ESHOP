@@ -7,6 +7,7 @@ const app = require("./app");
 const connectDatabase = require("./db/Database");
 const cloudinary = require("cloudinary").v2;
 
+
 // 🔴 Handle uncaught exceptions
 process.on("uncaughtException", (err) => {
   console.log(`❌ Uncaught Exception: ${err.message}`);
@@ -23,9 +24,7 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
-app.get("/ping", (req, res) => {
-  res.send("pong");
-});
+
 
 // ✅ Set PORT
 const PORT = process.env.PORT || 8000;

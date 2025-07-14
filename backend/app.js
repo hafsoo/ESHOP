@@ -8,7 +8,6 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const ErrorHandler = require("./middleware/error");
-
 const app = express();
 
 // Middleware
@@ -27,7 +26,7 @@ app.use(
       'https://eshop-eyuz.vercel.app',
     ],
     credentials:true,
-  })
+})
 );
 // Health check
 app.get("/test", (req, res) => {
