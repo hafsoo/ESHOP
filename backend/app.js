@@ -26,7 +26,7 @@ app.use(
     origin: [
       'https://eshop-eyuz.vercel.app',
     ],
-    credentials: true,
+    credentials:true,
   })
 );
 // Health check
