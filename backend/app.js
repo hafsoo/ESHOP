@@ -22,21 +22,13 @@ app.use(bodyParser.urlencoded({ extended: true, limit: "20mb" }));
 // Enable CORS for frontend
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (
-        !origin ||                                     // Allow server-to-server
-        origin.endsWith(".vercel.app") ||              // Allow any Vercel preview
-        origin === "https://eshop-eyuz.vercel.app"     // Your main production frontend
-      ) {
-        callback(null, true);
-      } else {
-        callback(new Error("CORS blocked for: " + origin));
-      }
-    },
-    credentials: true,
-  })
+    // origin: "http://localhost:3000",
+    origin: [
+      'https://eshop-eyuz.vercel.app',
+    ],
+    credentials: true,
+  })
 );
-
 // Health check
 app.get("/test", (req, res) => {
   res.send("✅ Backend server is running");
