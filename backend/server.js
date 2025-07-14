@@ -1,12 +1,10 @@
-//require("dotenv").config({ path: "config/.env" });
-// Load environment config in dev
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "config/.env" });
 }
+
 const app = require("./app");
 const connectDatabase = require("./db/Database");
 const cloudinary = require("cloudinary").v2;
-
 
 // 🔴 Handle uncaught exceptions
 process.on("uncaughtException", (err) => {
@@ -15,9 +13,6 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
-// ✅ Connect to MongoDB
-connectDatabase();
-
 // ✅ Configure Cloudinary
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
@@ -25,17 +20,17 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-
 // ✅ Set PORT
 const PORT = process.env.PORT || 8000;
+let server;
 
-// ✅ Start the server
-const server = app.listen(PORT, () => {
-  console.log(`🚀 Server is running on http://localhost:${PORT}`);
-  console.log(`✅ Stripe Secret Key Loaded: ${!!process.env.STRIPE_SECRET_KEY}`);
+connectDatabase().then(() => {
+  server = app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+  });
 });
 
-// ⚠️ Handle unhandled promise rejections
+// ⚠ Handle unhandled promise rejections
 process.on("unhandledRejection", (err) => {
   console.log(`❌ Unhandled Promise Rejection: ${err.message}`);
   server.close(() => process.exit(1));
