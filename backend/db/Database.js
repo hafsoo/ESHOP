@@ -5,6 +5,7 @@ const connectDatabase = () => {
     .connect(process.env.DB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000, // ⏱️ Custom timeout
     })
     .then((data) => {
       console.log(`mongod connected with server: ${data.connection.host}`);
